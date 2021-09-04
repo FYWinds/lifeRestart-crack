@@ -143,6 +143,7 @@
             "MNY": -1,
             "SPR": -1
         },
+        "NoRandom": 1,
         "include": "(EVT?[10009])&(STR<3)&(SPR<3)&(MNY<3)",
         "exclude": "(EVT?[10016])|(TLT?[1029])",
         "branch": [
@@ -159,6 +160,7 @@
         },
         "include": "(EVT?[10009])&(STR<3)&(SPR<3)&(MNY<3)",
         "exclude": "(EVT?[10017])|(TLT?[1029])",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10016]:10000"
         ]
@@ -866,6 +868,7 @@
         "postEvent": "还好没有毒。",
         "include": "EVT?[10009]",
         "exclude": "EVT?[10092]",
+        "NoRandom": 1,
         "branch": [
             "(STR<3)&(TLT![1022]):10000"
         ]
@@ -1956,6 +1959,7 @@
         "effect": {
             "SPR": -2
         },
+        "NoRandom": 1,
         "include": "EVT?[10198,10155,10156,10226]",
         "exclude": "(EVT?[10230,10016,10017])|(TLT?[1015])",
         "branch": [
@@ -2111,6 +2115,7 @@
         "effect": {
             "SPR": -2
         },
+        "NoRandom": 1,
         "include": "EVT?[10248]",
         "exclude": "EVT?[10249]",
         "branch": [
@@ -2433,6 +2438,7 @@
         "event": "你遭遇了严重的车祸。",
         "include": "EVT?[10009]",
         "exclude": "TLT?[1043]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10009]:10000"
         ]
@@ -2442,6 +2448,7 @@
         "event": "你查出了晚期癌症。",
         "include": "(STR<6)&(EVT?[10009])",
         "exclude": "EVT?[10290]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10009]:10000"
         ]
@@ -2451,6 +2458,7 @@
         "event": "你突发心血管疾病去世。",
         "include": "(STR<6)&(EVT?[10009])",
         "exclude": "TLT?[1044]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10009]:10000"
         ]
@@ -2481,6 +2489,7 @@
         },
         "include": "(STR>5)&(EVT?[10009])",
         "exclude": "(TLT?[1048])|(EVT?[10294])",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10009]:10000"
         ]
@@ -2714,7 +2723,6 @@
             "STR": 3,
             "SPR": 2
         },
-        "include": "TLT?[1048]",
         "exclude": "EVT?[10323]"
     },
     "10324": {
@@ -2724,7 +2732,6 @@
         "effect": {
             "STR": 1
         },
-        "include": "TLT?[1048]",
         "exclude": "EVT?[10333]"
     },
     "10325": {
@@ -2924,6 +2931,7 @@
         "event": "寿元终。",
         "include": "TLT?[1048]",
         "exclude": "EVT?[10333]",
+        "NoRandom": 1,
         "branch": [
             "TLT?[1048]:10000"
         ]
@@ -2933,6 +2941,7 @@
         "event": "寿元终。",
         "include": "TLT?[1048]",
         "exclude": "EVT?[10345,10361]",
+        "NoRandom": 1,
         "branch": [
             "TLT?[1048]:10000"
         ]
@@ -3139,6 +3148,7 @@
         "event": "寿元终。",
         "include": "TLT?[1048]",
         "exclude": "EVT?[10365,10361]",
+        "NoRandom": 1,
         "branch": [
             "TLT?[1048]:10000"
         ]
@@ -3240,6 +3250,7 @@
         "event": "寿元终。",
         "include": "TLT?[1048]",
         "exclude": "EVT?[10377]",
+        "NoRandom": 1,
         "branch": [
             "TLT?[1048]:10000"
         ]
@@ -3466,8 +3477,7 @@
         "NoRandom": 1,
         "exclude": "EVT?[10402]",
         "branch": [
-            "EVT?[10382]:10403",
-            "EVT?[10377]:10000"
+            "EVT?[10382]:10403"
         ]
     },
     "10403": {
@@ -3476,8 +3486,7 @@
         "NoRandom": 1,
         "exclude": "EVT?[10403]",
         "branch": [
-            "EVT?[10383]:10404",
-            "EVT?[10377]:10000"
+            "EVT?[10383]:10404"
         ]
     },
     "10404": {
@@ -3486,8 +3495,7 @@
         "NoRandom": 1,
         "exclude": "EVT?[10404]",
         "branch": [
-            "EVT?[10380]:10405",
-            "EVT?[10377]:10000"
+            "EVT?[10380]:10405"
         ]
     },
     "10405": {
@@ -3496,8 +3504,7 @@
         "NoRandom": 1,
         "exclude": "EVT?[10405]",
         "branch": [
-            "EVT?[10381]:10406",
-            "EVT?[10377]:10000"
+            "EVT?[10381]:10406"
         ]
     },
     "10406": {
@@ -3506,8 +3513,7 @@
         "NoRandom": 1,
         "exclude": "EVT?[10406]",
         "branch": [
-            "EVT?[10384]:10407",
-            "EVT?[10377]:10000"
+            "EVT?[10384]:10407"
         ]
     },
     "10407": {
@@ -3516,8 +3522,7 @@
         "NoRandom": 1,
         "exclude": "EVT?[10407]",
         "branch": [
-            "EVT?[10386,10387,10388,10389,10390]:10408",
-            "EVT?[10377]:10000"
+            "EVT?[10386,10387,10388,10389,10390]:10408"
         ]
     },
     "10408": {
@@ -3526,8 +3531,7 @@
         "NoRandom": 1,
         "exclude": "EVT?[10408]",
         "branch": [
-            "SPR>10:10409",
-            "EVT?[10377]:10000"
+            "SPR>10:10409"
         ]
     },
     "10409": {
@@ -5283,6 +5287,7 @@
         "event": "你因病医治无效去世。",
         "include": "EVT?[10011]",
         "exclude": "TLT?[1048]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10011]:10000"
         ]
@@ -5292,6 +5297,7 @@
         "event": "你在睡梦中安然离世。",
         "include": "EVT?[10011]",
         "exclude": "TLT?[1048]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10011]:10000"
         ]
@@ -6384,6 +6390,7 @@
     "10820": {
         "id": 10820,
         "event": "你走火入魔，体质大幅降低。",
+        "NoRandom": 1,
         "effect": {
             "STR": -100
         },
@@ -6562,6 +6569,7 @@
         "event": "你患重病身亡。",
         "include": "EVT?[10843]",
         "exclude": "EVT?[10844]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10843]:10000"
         ]
@@ -8907,6 +8915,7 @@
         "event": "你在一次拍戏过程中意外身故。",
         "include": "EVT?[10966]",
         "exclude": "EVT?[11204]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10966]:10000"
         ]
@@ -9007,6 +9016,7 @@
         "event": "你遭遇车祸去世。",
         "include": "EVT?[10010]",
         "exclude": "(EVT?[11219])|(TLT?[1043])",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
@@ -9016,6 +9026,7 @@
         "event": "你突发心脏病去世。",
         "include": "(STR<2)&(EVT?[10010])",
         "exclude": "(EVT?[11220])|(TLT?[1044])",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
@@ -9345,6 +9356,7 @@
         "event": "你在太空旅行中意外身亡。",
         "include": "EVT?[11264]",
         "exclude": "EVT?[11268]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
@@ -9414,6 +9426,7 @@
         "postEvent": "你死前不明白为什么那个人是从天上下来的。",
         "include": "(CHR>9)&(EVT?[10010])",
         "exclude": "EVT?[11277]",
+        "NoRandom": 1,
         "branch": [
             "STR<100:10000"
         ]
@@ -9574,6 +9587,7 @@
         "event": "超级核战争，世界毁灭了。",
         "include": "(EVT?[11263])&(EVT?[11298])",
         "exclude": "EVT?[11299]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
@@ -9620,6 +9634,7 @@
         "event": "你因为癌症去世。",
         "include": "EVT?[10010]",
         "exclude": "EVT?[11306,11305]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
@@ -9648,6 +9663,7 @@
         "event": "你得了不治之症去世。",
         "include": "(STR<3)&(EVT?[10010])",
         "exclude": "EVT?[11309]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
@@ -9657,6 +9673,7 @@
         "event": "你在睡梦中安然离世。",
         "include": "EVT?[10010]",
         "exclude": "(EVT?[11310])|(TLT?[1048])",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
@@ -9675,6 +9692,7 @@
         "event": "你被人谋杀了。",
         "include": "EVT?[11124]",
         "exclude": "EVT?[11312]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
@@ -9684,6 +9702,7 @@
         "event": "你因抑郁症去世。",
         "include": "(SPR<2)&(EVT?[10010])",
         "exclude": "EVT?[11313]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
@@ -9693,6 +9712,7 @@
         "event": "你意外落水身亡。",
         "include": "EVT?[10010]",
         "exclude": "(EVT?[11314,11318])|(TLT?[1016])",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
@@ -9753,6 +9773,7 @@
         "event": "你在狱中被人打死。",
         "include": "(STR<6)&(EVT?[11320])",
         "exclude": "EVT?[11321,11322]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
@@ -9762,6 +9783,7 @@
         "event": "你因病去世。",
         "include": "EVT?[11320]",
         "exclude": "EVT?[11321,11322]",
+        "NoRandom": 1,
         "branch": [
             "EVT?[10010]:10000"
         ]
