@@ -19,9 +19,9 @@ class Life {
         const talents = await json('talents');
         const events = await json('events');
 
-        this.#property.initial({age});
-        this.#talent.initial({talents});
-        this.#event.initial({events});
+        this.#property.initial({ age });
+        this.#talent.initial({ talents });
+        this.#event.initial({ events });
     }
 
     restart(allocation) {
@@ -36,8 +36,8 @@ class Life {
     }
 
     next() {
-        const {age, event, talent} = this.#property.ageNext();
-
+        const { age, event, talent } = this.#property.ageNext();
+        // console.log(age, event, talent)
         const talentContent = this.doTalent(talent);
         const eventContent = this.doEvent(this.random(event));
         this.#property.record();
@@ -49,14 +49,14 @@ class Life {
     }
 
     doTalent(talents) {
-        if(talents) this.#property.change(this.#property.TYPES.TLT, talents);
+        if (talents) this.#property.change(this.#property.TYPES.TLT, talents);
         talents = this.#property.get(this.#property.TYPES.TLT)
-            .filter(talentId=>!this.#triggerTalents.has(talentId));
+            .filter(talentId => !this.#triggerTalents.has(talentId));
 
         const contents = [];
-        for(const talentId of talents) {
+        for (const talentId of talents) {
             const result = this.#talent.do(talentId, this.#property);
-            if(!result) continue;
+            if (!result) continue;
             this.#triggerTalents.add(talentId);
             const { effect, name, description, grade } = result;
             contents.push({
@@ -65,7 +65,7 @@ class Life {
                 grade,
                 description,
             })
-            if(!effect) continue;
+            if (!effect) continue;
             this.#property.effect(effect);
         }
         return contents;
@@ -80,26 +80,26 @@ class Life {
             description,
             postEvent,
         }
-        if(next) return [content, this.doEvent(next)].flat();
+        if (next) return [content, this.doEvent(next)].flat();
         return [content];
     }
 
     random(events) {
-        events = events.filter(([eventId])=>this.#event.check(eventId, this.#property));
+        events = events.filter(([eventId]) => this.#event.check(eventId, this.#property));
 
         let totalWeights = 0;
-        for(const [, weight] of events)
+        for (const [, weight] of events)
             totalWeights += weight;
 
         let random = Math.random() * totalWeights;
-        for(const [eventId, weight] of events)
-            if((random-=weight)<0)
+        for (const [eventId, weight] of events)
+            if ((random -= weight) < 0)
                 return eventId;
-        return events[events.length-1];
+        return events[events.length - 1];
     }
 
     talentRandom() {
-        return this.#talent.talentRandom(JSON.parse(localStorage.extendTalent||'null'));
+        return this.#talent.talentRandom(JSON.parse(localStorage.extendTalent || 'null'));
     }
 
     talentExtend(talentId) {

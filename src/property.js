@@ -1,7 +1,7 @@
 import { clone } from './functions/util.js';
 
 class Property {
-    constructor() {}
+    constructor() { }
 
     TYPES = {
         AGE: "AGE",
@@ -19,24 +19,24 @@ class Property {
     #data;
     #record;
 
-    initial({age}) {
+    initial({ age }) {
 
         this.#ageData = age;
-        for(const a in age) {
+        for (const a in age) {
             let { event, talent } = age[a];
-            if(!Array.isArray(event))
+            if (!Array.isArray(event))
                 event = event?.split(',') || [];
 
-            event = event.map(v=>{
-                const value = `${v}`.split('*').map(n=>Number(n));
-                if(value.length==1) value.push(1);
+            event = event.map(v => {
+                const value = `${v}`.split('*').map(n => Number(n));
+                if (value.length == 1) value.push(1);
                 return value;
             });
 
-            if(!Array.isArray(talent))
+            if (!Array.isArray(talent))
                 talent = talent?.split(',') || [];
 
-            talent = talent.map(v=>Number(v));
+            talent = talent.map(v => Number(v));
 
             age[a] = { event, talent };
         }
@@ -45,22 +45,22 @@ class Property {
     restart(data) {
         this.#data = {
             [this.TYPES.AGE]: -1,
-            [this.TYPES.CHR]: 0,
-            [this.TYPES.INT]: 0,
-            [this.TYPES.STR]: 0,
-            [this.TYPES.MNY]: 0,
-            [this.TYPES.SPR]: 0,
+            [this.TYPES.CHR]: 99999,
+            [this.TYPES.INT]: 99999,
+            [this.TYPES.STR]: 99999,
+            [this.TYPES.MNY]: 99999,
+            [this.TYPES.SPR]: 99999,
             [this.TYPES.LIF]: 1,
             [this.TYPES.TLT]: [],
             [this.TYPES.EVT]: [],
         };
-        for(const key in data)
+        for (const key in data)
             this.change(key, data[key]);
         this.#record = [];
     }
 
     get(prop) {
-        switch(prop) {
+        switch (prop) {
             case this.TYPES.AGE:
             case this.TYPES.CHR:
             case this.TYPES.INT:
@@ -76,7 +76,7 @@ class Property {
     }
 
     set(prop, value) {
-        switch(prop) {
+        switch (prop) {
             case this.TYPES.AGE:
             case this.TYPES.CHR:
             case this.TYPES.INT:
@@ -108,12 +108,12 @@ class Property {
     }
 
     change(prop, value) {
-        if(Array.isArray(value)) {
-            for(const v of value)
+        if (Array.isArray(value)) {
+            for (const v of value)
                 this.change(prop, Number(v));
             return;
         }
-        switch(prop) {
+        switch (prop) {
             case this.TYPES.AGE:
             case this.TYPES.CHR:
             case this.TYPES.INT:
@@ -126,18 +126,18 @@ class Property {
             case this.TYPES.TLT:
             case this.TYPES.EVT:
                 const v = this.#data[prop];
-                if(value<0) {
+                if (value < 0) {
                     const index = v.indexOf(value);
-                    if(index!=-1) v.splice(index,1);
+                    if (index != -1) v.splice(index, 1);
                 }
-                if(!v.includes(value)) v.push(value);
+                if (!v.includes(value)) v.push(value);
                 break;
             default: return;
         }
     }
 
     effect(effects) {
-        for(const prop in effects)
+        for (const prop in effects)
             this.change(prop, Number(effects[prop]));
     }
 
@@ -148,8 +148,8 @@ class Property {
     ageNext() {
         this.change(this.TYPES.AGE, 1);
         const age = this.get(this.TYPES.AGE);
-        const {event, talent} = this.getAgeData(age);
-        return {age, event, talent};
+        const { event, talent } = this.getAgeData(age);
+        return { age, event, talent };
     }
 
     getAgeData(age) {

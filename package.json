@@ -3,7 +3,7 @@
     "type": "module",
     "bin": "test/index.js",
     "scripts": {
-        "test": "node test",
+        "test": "node test --trace-warnings",
         "xlsxTransform": "node utils/xlsxTransform.js data",
         "dev": "webpack --mode development",
         "build": "webpack --mode production"
